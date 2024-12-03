@@ -12,25 +12,30 @@ type Data struct {
 }
 
 func main() {
-	content_raw, _ := os.ReadFile("input.txt")
-	data := parse(content_raw)
+	content, _ := os.ReadFile("input.txt")
+	data := parse(string(content))
 
-	partOne(data)
-	// partTwo(data)
+	answer_one := partOne(data)
+	fmt.Println("Part 1:", answer_one)
+
+	answer_two := partTwo(data)
+	fmt.Println("Part 2:", answer_two)
 }
 
-func parse(content_raw []byte) {
-	scanner := bufio.NewScanner(strings.NewReader(string(content_raw)))
+func parse(content string) Data {
+	scanner := bufio.NewScanner(strings.NewReader(string(content)))
+
+	return Data{}
 }
 
-func partOne(input Data) {
+func partOne(data Data) int {
 	answer := 0
 
-	fmt.Println("Part 1:", answer)
+	return answer
 }
 
-// func partTwo(module_masss []int) {
-// 	answer := 0
-//
-// 	fmt.Println("Part 2:", answer)
-// }
+func partTwo(data Data) int {
+	answer := 0
+
+	return answer
+}
