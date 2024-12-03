@@ -12,7 +12,7 @@ import (
 func main() {
 	content_raw, _ := os.ReadFile("input.txt")
 
-	data := parse(content_raw)
+	data := parse(string(content_raw))
 
 	answer_one := partOne(data)
 	fmt.Println("Part 1:", answer_one)
@@ -26,8 +26,8 @@ type Data struct {
 	right []int
 }
 
-func parse(content_raw []byte) Data {
-	scanner := bufio.NewScanner(strings.NewReader(string(content_raw)))
+func parse(content string) Data {
+	scanner := bufio.NewScanner(strings.NewReader(content))
 
 	var left []int
 	var right []int

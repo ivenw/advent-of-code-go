@@ -12,7 +12,7 @@ const input = `3   4
 3   3`
 
 func TestPartOne(t *testing.T) {
-	data := parse([]byte(input))
+	data := parse(input)
 	answer := partOne(data)
 	want := 11
 	if answer != want {
@@ -21,7 +21,7 @@ func TestPartOne(t *testing.T) {
 }
 
 func TestPartTwo(t *testing.T) {
-	data := parse([]byte(input))
+	data := parse(input)
 	answer := partTwo(data)
 	want := 31
 	if answer != want {
