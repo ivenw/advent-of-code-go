@@ -14,8 +14,11 @@ func main() {
 
 	data := parse(content_raw)
 
-	partOne(data)
-	partTwo(data)
+	answer_one := partOne(data)
+	fmt.Println("Part 1:", answer_one)
+
+	answer_two := partTwo(data)
+	fmt.Println("Part 2:", answer_two)
 }
 
 type Data struct {
@@ -48,7 +51,7 @@ func absInt(x int) int {
 	return x
 }
 
-func partOne(data Data) {
+func partOne(data Data) int {
 	answer := 0
 
 	slices.Sort(data.left)
@@ -59,10 +62,10 @@ func partOne(data Data) {
 		answer += distance
 	}
 
-	fmt.Println("Part 1:", answer)
+	return answer
 }
 
-func partTwo(data Data) {
+func partTwo(data Data) int {
 	answer := 0
 
 	tally := make(map[int]int)
@@ -71,15 +74,15 @@ func partTwo(data Data) {
 		tally[value] = 0
 	}
 
-	for _, value := range data.right {
-		if _, ok := tally[value]; ok {
-			tally[value]++
+	for _, number := range data.right {
+		if _, ok := tally[number]; ok {
+			tally[number]++
 		}
 	}
 
-	for key, value := range tally {
-		answer += key * value
+	for _, number := range data.left {
+		answer += number * tally[number]
 	}
 
-	fmt.Println("Part 2:", answer)
+	return answer
 }
