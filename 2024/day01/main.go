@@ -11,7 +11,6 @@ import (
 
 func main() {
 	content_raw, _ := os.ReadFile("input.txt")
-
 	data := parse(string(content_raw))
 
 	answer_one := partOne(data)
